@@ -1,0 +1,4 @@
+ifconfig eth0 200.150.100.80
+route add default gw 200.150.100.81
+
+route add -net 10.0.0.0/8 gw 200.150.100.81

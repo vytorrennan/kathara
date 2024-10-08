@@ -1,0 +1,9 @@
+ifconfig eth0 150.10.20.30/16
+route add default gw 150.10.20.31
+
+mkdir -p /dev/net
+mknod /dev/net/tun c 10 200
+cd /etc/openvpn/
+cp /hosthome/kathara/lab11-2/chave.key .
+openvpn server.conf &
+
