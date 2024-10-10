@@ -1,0 +1,13 @@
+ifconfig eth0 70.0.0.2
+ifconfig eth1 172.16.0.1
+route add default gw 70.0.0.1
+iptables -t nat -A POSTROUTING -o eth1 -j MASQUERADE
+
+mkdir -p /dev/net
+mknod /dev/net/tun c 10 200
+
+cp /hosthome/kathara/labFinal/chave.key /etc/openvpn
+
+cd /etc/openvpn/
+openvpn server.conf &
+
